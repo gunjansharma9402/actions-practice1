@@ -1,0 +1,26 @@
+name: CI matrix build
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16 , 18 , 20 ]
+    
+    steps: 
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node-version}}
+
+      - name: installdependencies
+        run: npm install
+
+      - name: run test
+        run: npm test
+
+
+      
