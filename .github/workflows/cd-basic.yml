@@ -1,0 +1,19 @@
+name: Cd-pipeline
+on: [push]
+ branch:
+    - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build project
+        run: echo "building project"
+
+      - name: deploying project to server
+        run: echo "deploying to production"
+
+
