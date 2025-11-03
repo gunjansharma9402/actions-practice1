@@ -1,6 +1,7 @@
 name: Cd-pipeline
-on: [push]
- branch:
+on: 
+ push:
+  branches:
     - main
 
 jobs:
